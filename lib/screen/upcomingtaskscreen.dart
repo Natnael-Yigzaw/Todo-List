@@ -4,22 +4,23 @@ import 'package:my_todo/model/task.dart';
 import 'package:my_todo/provider/todoprovider.dart';
 import 'package:my_todo/screen/taskdetailscreen.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 import 'homescreen.dart';
 
-class TodayScreen extends StatelessWidget {
-  const TodayScreen({Key? key}) : super(key: key);
+class UpcomingTasksScreen extends StatelessWidget {
+  const UpcomingTasksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final todoProvider = Provider.of<TodoProvider>(context);
-    final List<Task> todayTasks = todoProvider.getTasksForToday();
+    final List<Task> upcomingTasks = todoProvider.getUpcomingTasks();
 
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF0A4C71),
         title: Text(
-          'Today',
+          'Upcoming Tasks',
           style: GoogleFonts.playfairDisplay(
             textStyle: const TextStyle(
               fontWeight: FontWeight.bold,
@@ -37,19 +38,19 @@ class TodayScreen extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(),
-                ),
+              MaterialPageRoute(
+                builder: (BuildContext context) => HomePage(),
+              ),
             );
           },
         ),
       ),
       body: Container(
         color: Colors.white54,
-        child: todayTasks.isEmpty
+        child: upcomingTasks.isEmpty
             ? Center(
                 child: Text(
-                  'There is no task for today.',
+                  'There are no upcoming tasks.',
                   style: GoogleFonts.playfairDisplay(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
@@ -60,16 +61,18 @@ class TodayScreen extends StatelessWidget {
               )
             : ListView.builder(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                itemCount: todayTasks.length,
+                itemCount: upcomingTasks.length,
                 itemBuilder: (context, index) {
-                  final task = todayTasks[index];
+                  final task = upcomingTasks[index];
+                  final taskDate = task.dueDate;
 
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TaskDescriptionScreen(task: task),
+                          builder: (context) =>
+                              TaskDescriptionScreen(task: task),
                         ),
                       );
                     },
@@ -80,22 +83,36 @@ class TodayScreen extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        color:  Colors.white70,
+                        color: Colors.white70,
                         child: ListTile(
                           contentPadding: const EdgeInsets.all(0),
                           title: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 18.0),
                             child: Text(
                               task.title,
                               style: TextStyle(
-                                decoration: task.isCompleted ? TextDecoration.lineThrough : TextDecoration.none,
+                                decoration: task.isCompleted
+                                    ? TextDecoration.lineThrough
+                                    : TextDecoration.none,
                                 color: Colors.black87,
                               ),
                             ),
                           ),
+                         trailing: Container(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              DateFormat.EEEE().format(taskDate),
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                //fontWeight: FontWeight.normal,
+                                color: Colors.black87,
+                              ),
+                            ),
                         ),
                       ),
                     ),
+                    )
                   );
                 },
               ),

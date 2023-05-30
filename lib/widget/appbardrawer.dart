@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_todo/screen/favoritetaskscreen.dart';
 import 'package:my_todo/screen/homescreen.dart';
+import 'package:my_todo/screen/infoscreen.dart';
 import 'package:my_todo/screen/todaytaskscreen.dart';
+import '../screen/upcomingtaskscreen.dart';
 
 
 class AppDrawer extends StatelessWidget {
@@ -81,7 +83,7 @@ class AppDrawer extends StatelessWidget {
               color: Colors.transparent,
               child: ListTile(
                 leading: const Icon(
-                  Icons.today,
+                  Icons.today_sharp,
                   color: Color.fromARGB(255, 82, 106, 116),
                 ),
                 title: Text(
@@ -127,6 +129,62 @@ class AppDrawer extends StatelessWidget {
                     MaterialPageRoute(
                       builder: (context) =>
                            const FavoriteTasksScreen(),
+                    ),
+                  );
+                },
+              ),
+            ),
+               Material(
+              color: Colors.transparent,
+              child: ListTile(
+                leading: const Icon(
+                  Icons.calendar_month_rounded,
+                  color: Color.fromARGB(255, 82, 106, 116),
+                ),
+                title: Text(
+                  'Upcoming Events',
+                  style: GoogleFonts.playfairDisplay(
+                    textStyle: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                           UpcomingTasksScreen(),
+                    ),
+                  );
+                },
+              ),
+            ),
+               Material(
+              color: Colors.transparent,
+              child: ListTile(
+                leading: const Icon(
+                  Icons.info,
+                  color: Color.fromARGB(255, 82, 106, 116),
+                ),
+                title: Text(
+                  'Info',
+                  style: GoogleFonts.playfairDisplay(
+                    textStyle: const TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                onTap: () {
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                           InfoScreen(),
                     ),
                   );
                 },

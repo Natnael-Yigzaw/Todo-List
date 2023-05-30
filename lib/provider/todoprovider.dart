@@ -122,20 +122,6 @@ void updateTask(Task updatedTask) {
     return todayTasks;
   }
 
-void decreaseTaskCountForToday() {
-  final todayTasks = getTasksForToday();
-  final completedTasks = todayTasks.where((task) => task.isCompleted).toList();
-  completedTasks.forEach((task) {
-    final index = _tasks.indexOf(task);
-    if (index != -1) {
-      _tasks[index].isCompleted = true;
-    }
-  });
-
-  _saveTasks();
-  notifyListeners();
-}
-
   bool areAllTasksCompleted() {
     return _tasks.isNotEmpty && _tasks.every((task) => task.isCompleted);
   }
@@ -166,12 +152,6 @@ bool isTaskFavorite(Task task) {
   _saveFavoriteTasks();
   notifyListeners();
 }
-
-  void setTasks(List<Task> copyTasks) {
-    _tasks = copyTasks;
-  _saveTasks();
-  notifyListeners();
-  }
   
 int getTasksCountForToday() {
   final today = DateTime.now();
@@ -184,4 +164,15 @@ int getTasksCountForToday() {
 
   return todayTasks.length;
 }
+
+List<Task> getUpcomingTasks() {
+  final tomorrow = DateTime.now().add(Duration(days: 1));
+  final upcomingTasks = _tasks.where((task) {
+    final taskDate = task.dueDate;
+    return taskDate.isAfter(tomorrow) && taskDate.difference(tomorrow).inDays <= 2;
+  }).toList();
+
+  return upcomingTasks;
+}
+
 }

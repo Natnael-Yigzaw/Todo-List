@@ -4,6 +4,7 @@ import 'package:my_todo/screen/taskdetailscreen.dart';
 import 'package:provider/provider.dart';
 import '../model/task.dart';
 import '../provider/todoprovider.dart';
+import 'homescreen.dart';
 
 class FavoriteTasksScreen extends StatelessWidget {
   const FavoriteTasksScreen({Key? key}) : super(key: key);
@@ -38,7 +39,12 @@ class FavoriteTasksScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back),
           color: Colors.white54,
           onPressed: () {
-            Navigator.pop(context);
+                   Navigator.push(
+              context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => HomePage(),
+                ),
+            );
           },
         ),
       ),

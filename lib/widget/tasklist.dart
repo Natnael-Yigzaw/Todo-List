@@ -169,7 +169,7 @@ class TaskListWidget extends StatelessWidget {
     final snackBar = SnackBar(
       content: Text('Congratulations! You have completed all tasks'),
       duration: const Duration(seconds: 1),
-      backgroundColor: Colors.green, // Adjust the background color of the SnackBar
+      backgroundColor: Colors.green,
       //behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
        // borderRadius: BorderRadius.circular(8.0),

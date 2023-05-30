@@ -72,8 +72,8 @@ class _TaskDescriptionScreenState extends State<TaskDescriptionScreen> {
                     ),
                     duration: const Duration(seconds: 1),
                     backgroundColor: isFavorite
-                        ? Colors.amber // Set the background color for adding to favorites
-                        : Colors.red, // Set the background color for removing from favorites
+                        ? Colors.amber 
+                        : Colors.red,
                   ),
                   
                 );

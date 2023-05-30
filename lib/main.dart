@@ -25,8 +25,6 @@ class MyApp extends StatelessWidget {
       title: 'Todo',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
-       // primaryColor: Color.fromARGB(255, 38, 50, 56),
-       // primaryColorDark: Color.fromARGB(255, 26, 35, 39),
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
            color : Color(0xFF0A4C71),
