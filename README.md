@@ -1,6 +1,5 @@
 ## My To-Do List Application
 This is a simple to-do list application built with Flutter. It allows users to create tasks, set due dates, mark tasks as completed, and organize them based on priority.
-
 ## Features
 - Create tasks: Users can add new tasks with a title, description, and due date.
 - Mark tasks as completed: Users can mark tasks as completed, which will visually indicate their status.
@@ -8,15 +7,9 @@ This is a simple to-do list application built with Flutter. It allows users to c
 - Favorite tasks: Users can mark tasks as favorites, making them easily accessible and distinguishable.
 - Upcoming tasks: Users can view and filter tasks for the upcoming days.
 - Search tasks: Users can search for tasks by their title, providing a convenient way to find specific tasks.
-
 ## Installation
-<<<<<<< HEAD
 - Clone the repository: git clone https://github.com/Natnael-Yigzaw/Flutter-Todo-List-Mobile-Application.git
 - Navigate to the project directory: cd my-todo
-=======
-- Clone the repository: git clone https://github.com/your-username/my-todo-list-app.git
-- Navigate to the project directory: cd my-todo-list-app
->>>>>>> 20305fd842a82eaf13374073fc7774c8954cba67
 - Install dependencies: flutter pub get
 - Run the application: flutter run
 ## Dependencies
@@ -25,8 +18,6 @@ The following dependencies are used in this project:
 - provider
 - shared_preferences
 - google_fonts,...
-<<<<<<< HEAD
 These dependencies can be found in the pubspec.yaml file.
-=======
-These dependencies can be found in the pubspec.yaml file.
->>>>>>> 20305fd842a82eaf13374073fc7774c8954cba67
+
+
