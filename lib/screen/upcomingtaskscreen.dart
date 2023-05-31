@@ -21,7 +21,7 @@ class UpcomingTasksScreen extends StatelessWidget {
         backgroundColor: const Color(0xFF0A4C71),
         title: Text(
           'Upcoming Tasks',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.quicksand(
             textStyle: const TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white54,
@@ -51,7 +51,7 @@ class UpcomingTasksScreen extends StatelessWidget {
             ? Center(
                 child: Text(
                   'There are no upcoming tasks.',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 18,

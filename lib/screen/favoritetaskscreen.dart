@@ -27,11 +27,14 @@ class FavoriteTasksScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF0A4C71),
-        title: const Text(
+        title: Text(
           'Favorite Tasks',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white54,
+            style: GoogleFonts.quicksand(
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white54,
+              fontSize: 18,
+            ),
           ),
         ),
         centerTitle: true,
@@ -54,7 +57,7 @@ class FavoriteTasksScreen extends StatelessWidget {
             ?  Center(
                 child: Text(
                   'No Favorite Tasks.',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle:  const TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 18,

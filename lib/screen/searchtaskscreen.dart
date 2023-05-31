@@ -117,7 +117,7 @@ class _SearchTaskScreenState extends State<SearchTaskScreen> {
           : Center(
                 child: Text(
                   'There is no Task with such title.',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle:  const TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 18,

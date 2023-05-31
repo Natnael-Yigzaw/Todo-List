@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 import 'package:my_todo/model/task.dart';
@@ -36,9 +37,11 @@ class _TaskDescriptionScreenState extends State<TaskDescriptionScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.task.title,
-        style: const TextStyle(
+           style: GoogleFonts.quicksand(
+          textStyle: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,
+          ),
           ),
         ),
          leading: IconButton(
@@ -66,8 +69,10 @@ class _TaskDescriptionScreenState extends State<TaskDescriptionScreen> {
                       isFavorite
                           ? 'Task added to favorites.'
                           : 'Task removed from favorites.',
-                      style: const TextStyle(
-                        color: Colors.white,
+                         style: GoogleFonts.quicksand(
+                         textStyle: TextStyle(
+                         color: Colors.white,
+                      ),
                       ),
                     ),
                     duration: const Duration(seconds: 1),
@@ -90,7 +95,11 @@ class _TaskDescriptionScreenState extends State<TaskDescriptionScreen> {
             const SizedBox(height: 16.0),
             Text(
               widget.task.description,
-              style: const TextStyle(fontSize: 16.0),
+                 style: GoogleFonts.quicksand(
+                 textStyle: TextStyle(
+                 fontSize: 16.0,
+              ),
+              ),
             ),
             const SizedBox(height: 24.0),
             Row(

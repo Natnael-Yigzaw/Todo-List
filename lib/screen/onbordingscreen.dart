@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_todo/screen/homescreen.dart';
 import '../model/onbording_contents.dart';
 import '../widget/size_config.dart';
-
-//? to make it a one time screen another time after the splash screen the home screen displayes.
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -87,20 +86,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                         Text(
                           contents[i].title,
-                          style: TextStyle(
+                          style:GoogleFonts.quicksand( 
+                          textStyle: TextStyle(
                             color: Colors.black87,
                             fontWeight: FontWeight.w600,
                             fontSize: (width <= 550) ? 30 : 35,
+                          ),
                           ),
                         ),
                         const SizedBox(height: 15),
                         Text(
                           contents[i].desc,
-                          style: TextStyle(
+                          style:GoogleFonts.quicksand( 
+                          textStyle: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: (width <= 550) ? 17 : 25,
                           ),
-                          textAlign: TextAlign.center,
+                        ),
+                        textAlign: TextAlign.center,
                         )
                       ],
                     ),
@@ -147,7 +150,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               textStyle:
                                   TextStyle(fontSize: (width <= 550) ? 13 : 17),
                             ),
-                            child: const Text("START"),
+                            child: Text("START",
+                               style: GoogleFonts.quicksand( 
+                                  textStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    ),
+                                ),
+                            ),
                           ),
                         )
                       : Padding(
@@ -166,9 +176,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     fontSize: (width <= 550) ? 13 : 17,
                                   ),
                                 ),
-                                child: const Text(
+                                child: Text(
                                   "SKIP",
-                                  style: TextStyle(color: Colors.black),
+                                  style: GoogleFonts.quicksand( 
+                                  textStyle: TextStyle(color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                                 ),
                               ),
                               ElevatedButton(
@@ -192,7 +206,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   textStyle: TextStyle(
                                       fontSize: (width <= 550) ? 13 : 17),
                                 ),
-                                child: const Text("NEXT"),
+                                child: Text("NEXT",
+                                   style: GoogleFonts.quicksand( 
+                                  textStyle: TextStyle(color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                ),
                               ),
                             ],
                           ),

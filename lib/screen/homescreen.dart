@@ -1,5 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_todo/provider/todoprovider.dart';
 import 'package:my_todo/model/task.dart';
 import 'package:my_todo/screen/searchtaskscreen.dart';
@@ -66,13 +67,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'My Todo',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white54,
-            fontSize: 18,
-          ),
+             style: GoogleFonts.quicksand( 
+              textStyle: TextStyle(
+               fontWeight: FontWeight.bold,          
+               color: Colors.white54,
+               fontSize: 18,
+             ),
+           ),
         ),
         centerTitle: true,
         leading: Builder(

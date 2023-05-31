@@ -43,10 +43,12 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
   taskProvider.addTask(task); 
     
     ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+         SnackBar(
           content: Text('Task added successfully.',
-          style: TextStyle(
+          style: GoogleFonts.quicksand(
+          textStyle: TextStyle(
             color: Colors.white,
+          ),
           ),
           ),
           duration: const Duration(seconds: 1),
@@ -76,7 +78,7 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
             backgroundColor: const Color(0xFF0A4C71),
             title: Text(
               'New Task',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.quicksand(
                   textStyle: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.white54,
@@ -94,7 +96,7 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
                 children: [
                   Text(
                     'Title',
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.quicksand(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF2980B9),
@@ -117,7 +119,7 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
                   const SizedBox(height: 16.0),
                   Text(
                     'Description',
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.quicksand(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF2980B9),
@@ -141,7 +143,7 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
                   const SizedBox(height: 16.0),
                   Text(
                     'Due Date',
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.quicksand(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF2980B9),
@@ -170,7 +172,7 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
                     ),
                     child: Text(
                       'Add',
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.quicksand(
                         textStyle: const TextStyle(
                           fontWeight: FontWeight.normal,
                           color: Colors.white54,

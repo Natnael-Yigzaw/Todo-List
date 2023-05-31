@@ -20,7 +20,7 @@ class TaskListWidget extends StatelessWidget {
         ?  Center(
            child: Text(
                   'Make Your First Todo.',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle:  const TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 20,

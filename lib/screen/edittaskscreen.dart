@@ -36,10 +36,12 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Task',
-        style: TextStyle(
+        title: Text('Edit Task',
+           style: GoogleFonts.quicksand(
+          textStyle: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white54,
+          ),
           ),
         ),
         centerTitle: true,
@@ -59,7 +61,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
           children: [
              Text(
               'Title',
-               style: GoogleFonts.playfairDisplay(
+               style: GoogleFonts.quicksand(
                       textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF2980B9),
@@ -76,7 +78,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
             const SizedBox(height: 16.0),
              Text(
               'Description',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.quicksand(
                       textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(0xFF2980B9),
@@ -100,30 +102,33 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
         backgroundColor: const Color(0xFF0A4C71),
         foregroundColor: Colors.white54,
         onPressed: () {
-            Task updatedTask = Task(
-            id: widget.task.id,
-            title: _titleController.text.trim(),
-            description: _descriptionController.text.trim(),
-            dueDate: widget.task.dueDate,
-            isCompleted: widget.task.isCompleted,
-            isFavorite: widget.task.isFavorite,
-          );
+              Task updatedTask = Task(
+                id: widget.task.id,
+                title: _titleController.text.trim(),
+                description: _descriptionController.text.trim(),
+                dueDate: widget.task.dueDate,
+                isCompleted: widget.task.isCompleted,
+                isFavorite: widget.task.isFavorite,
+              );
 
-          final todoProvider = Provider.of<TodoProvider>(context, listen: false);
-          todoProvider.updateTask(updatedTask);
-          ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Task updated successfully.',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-          ),
-          duration: const Duration(seconds: 1),
-          backgroundColor: Color(0xFF0A4C71),
-        ),
-      );
-          Navigator.pop(context);  
-        },
+              final todoProvider = Provider.of<TodoProvider>(context, listen: false);
+              todoProvider.updateTask(updatedTask);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'Task updated successfully.',
+                    style: GoogleFonts.quicksand(
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  duration: const Duration(seconds: 1),
+                  backgroundColor: Color(0xFF0A4C71),
+                ),
+              );
+              Navigator.pop(context);
+            },
         child: const Icon(Icons.save),
       ),
     );

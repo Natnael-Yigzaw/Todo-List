@@ -20,7 +20,7 @@ class TodayScreen extends StatelessWidget {
         backgroundColor: const Color(0xFF0A4C71),
         title: Text(
           'Today',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.quicksand(
             textStyle: const TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white54,
@@ -50,7 +50,7 @@ class TodayScreen extends StatelessWidget {
             ? Center(
                 child: Text(
                   'There is no task for today.',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       fontSize: 18,

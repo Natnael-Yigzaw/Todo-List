@@ -40,7 +40,7 @@ class AppDrawer extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Menu',
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.quicksand(
                         textStyle: const TextStyle(
                           fontWeight: FontWeight.normal,
                           color: Colors.white,
@@ -61,7 +61,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 title: Text(
                   'Home',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
@@ -88,7 +88,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 title: Text(
                   'Today',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
@@ -115,7 +115,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 title: Text(
                   'Important',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
@@ -143,7 +143,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 title: Text(
                   'Upcoming Events',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Colors.black,
@@ -171,7 +171,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 title: Text(
                   'Info',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.quicksand(
                     textStyle: const TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Colors.black,

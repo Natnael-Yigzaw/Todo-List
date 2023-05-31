@@ -18,7 +18,7 @@ List<OnboardingContents> contents = [
   ),
   OnboardingContents(
     title: "Quick Access Menu",
-    image: "assets/images/drawerscreen.png",
+    image: "assets/images/drawer.png",
     desc:
         "Access your today and favorite tasks from the appbar drawer.",
   ),

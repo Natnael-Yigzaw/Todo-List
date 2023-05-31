@@ -5,7 +5,7 @@ import 'dart:convert';
 
 class TodoProvider extends ChangeNotifier {
   List<Task> _tasks = [];
-  final List<Task> _favoriteTasks = [];
+  List<Task> _favoriteTasks = [];
   SharedPreferences? _prefs;
 
   List<Task> get tasks => _tasks;
@@ -22,18 +22,12 @@ class TodoProvider extends ChangeNotifier {
 
     if (tasksJson != null) {
       final List<dynamic> decodedTasks = jsonDecode(tasksJson);
-      _tasks.clear();
-      for (var decodedTask in decodedTasks) {
-        _tasks.add(Task.fromJson(decodedTask));
-      }
+      _tasks = decodedTasks.map((decodedTask) => Task.fromJson(decodedTask)).toList();
     }
 
     if (favoriteTasksJson != null) {
       final List<dynamic> decodedFavoriteTasks = jsonDecode(favoriteTasksJson);
-      _favoriteTasks.clear();
-      for (var decodedTask in decodedFavoriteTasks) {
-        _favoriteTasks.add(Task.fromJson(decodedTask));
-      }
+      _favoriteTasks = decodedFavoriteTasks.map((decodedTask) => Task.fromJson(decodedTask)).toList();
     }
 
     notifyListeners();
@@ -97,12 +91,12 @@ void updateTask(Task updatedTask) {
   }
 }
 
- void completeTask(int index, bool isCompleted) {
+  void completeTask(int index, bool isCompleted) {
     final task = _tasks[index];
     task.isCompleted = isCompleted;
 
     if (task.isFavorite) {
-      final correspondingTask = _favoriteTasks.firstWhere((t) => t == task);
+      final correspondingTask = _favoriteTasks.firstWhere((t) => t.id == task.id);
       correspondingTask.isCompleted = isCompleted;
     }
 
@@ -140,39 +134,39 @@ void updateTask(Task updatedTask) {
     notifyListeners();
   }
 
-bool isTaskFavorite(Task task) {
-  return _favoriteTasks.contains(task);
-}
-  void toggleFavorite(Task task) {
-  if (_favoriteTasks.contains(task)) {
-    _favoriteTasks.remove(task);
-  } else {
-    _favoriteTasks.add(task);
+  bool isTaskFavorite(Task task) {
+    return _favoriteTasks.contains(task);
   }
-  _saveFavoriteTasks();
-  notifyListeners();
-}
-  
-int getTasksCountForToday() {
-  final today = DateTime.now();
-  final todayTasks = _tasks.where((task) {
-    final taskDate = task.dueDate;
-    return taskDate.year == today.year &&
-        taskDate.month == today.month &&
-        taskDate.day == today.day;
-  }).toList();
 
-  return todayTasks.length;
-}
+  void toggleFavorite(Task task) {
+    if (_favoriteTasks.contains(task)) {
+      _favoriteTasks.remove(task);
+    } else {
+      _favoriteTasks.add(task);
+    }
+    _saveFavoriteTasks();
+    notifyListeners();
+  }
 
-List<Task> getUpcomingTasks() {
-  final tomorrow = DateTime.now().add(Duration(days: 1));
-  final upcomingTasks = _tasks.where((task) {
-    final taskDate = task.dueDate;
-    return taskDate.isAfter(tomorrow) && taskDate.difference(tomorrow).inDays <= 2;
-  }).toList();
+  int getTasksCountForToday() {
+    final today = DateTime.now();
+    final todayTasks = _tasks.where((task) {
+      final taskDate = task.dueDate;
+      return taskDate.year == today.year &&
+          taskDate.month == today.month &&
+          taskDate.day == today.day;
+    }).toList();
 
-  return upcomingTasks;
-}
+    return todayTasks.length;
+  }
 
+  List<Task> getUpcomingTasks() {
+    final tomorrow = DateTime.now().add(const Duration(days: 1));
+    final upcomingTasks = _tasks.where((task) {
+      final taskDate = task.dueDate;
+      return taskDate.isAfter(tomorrow) && taskDate.difference(tomorrow).inDays <= 2;
+    }).toList();
+
+    return upcomingTasks;
+  }
 }
