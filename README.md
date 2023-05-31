@@ -10,8 +10,13 @@ This is a simple to-do list application built with Flutter. It allows users to c
 - Search tasks: Users can search for tasks by their title, providing a convenient way to find specific tasks.
 
 ## Installation
+<<<<<<< HEAD
 - Clone the repository: git clone https://github.com/Natnael-Yigzaw/Flutter-Todo-List-Mobile-Application.git
 - Navigate to the project directory: cd my-todo
+=======
+- Clone the repository: git clone https://github.com/your-username/my-todo-list-app.git
+- Navigate to the project directory: cd my-todo-list-app
+>>>>>>> 20305fd842a82eaf13374073fc7774c8954cba67
 - Install dependencies: flutter pub get
 - Run the application: flutter run
 ## Dependencies
@@ -20,4 +25,8 @@ The following dependencies are used in this project:
 - provider
 - shared_preferences
 - google_fonts,...
+<<<<<<< HEAD
 These dependencies can be found in the pubspec.yaml file.
+=======
+These dependencies can be found in the pubspec.yaml file.
+>>>>>>> 20305fd842a82eaf13374073fc7774c8954cba67
