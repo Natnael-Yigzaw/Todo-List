@@ -104,7 +104,7 @@ class UpcomingTasksScreen extends StatelessWidget {
                             child: Text(
                               DateFormat.EEEE().format(taskDate),
                               style: TextStyle(
-                                fontSize: 16.0,
+                                fontSize: 14.0,
                                 //fontWeight: FontWeight.normal,
                                 color: Colors.black87,
                               ),

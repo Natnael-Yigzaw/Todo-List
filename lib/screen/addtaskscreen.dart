@@ -113,6 +113,9 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a title';
                       }
+                       if (value.trim().isEmpty) {
+                        return 'Title cannot be just spaces';
+                      }
                       return null;
                     },
                   ),
@@ -136,6 +139,9 @@ class _TaskAddScreenState extends State<TaskAddScreen> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter a description';
+                      }
+                      if (value.trim().isEmpty) {
+                        return 'Description cannot be just spaces';
                       }
                       return null;
                     },

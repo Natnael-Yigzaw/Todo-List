@@ -68,94 +68,115 @@ class TaskListWidget extends StatelessWidget {
                 },
               ),
               trailing: PopupMenuButton<String>(
-                icon: const Icon(
-                  Icons.more_vert,
-                  color: Colors.black26,
-                ),
-                itemBuilder: (BuildContext context) => [
-                   const PopupMenuItem<String>(
-                    value: 'edit',
-                    child: SizedBox(
-                      width: 125,
-                      height: 40,
-                    child: ListTile(
+              icon: const Icon(
+                Icons.more_vert,
+                color: Colors.black26,
+              ),
+              itemBuilder: (BuildContext context) {
+                if (task.isCompleted) {
+                  // Show only the "Delete" option for completed tasks
+                  return [
+                    const PopupMenuItem<String>(
+                      value: 'delete',
+                      child: SizedBox(
+                        width: 125,
+                        height: 40,
+                        child: ListTile(
+                          dense: true,
+                          leading: Icon(Icons.delete),
+                          title: Text('Delete'),
+                        ),
+                      ),
+                    ),
+                  ];
+                } else {
+                  // Show both "Edit" and "Delete" options for non-completed tasks
+                  return [
+                    const PopupMenuItem<String>(
+                      value: 'edit',
+                      child: SizedBox(
+                        width: 125,
+                        height: 40,
+                        child: ListTile(
                           dense: true,
                           leading: Icon(Icons.edit),
                           title: Text('Edit'),
                         ),
                       ),
                     ),
-                   const PopupMenuItem<String>(
-                    value: 'delete',
-                    child: SizedBox(
-                      width: 125,
-                      height: 40,
-                    child: ListTile(
-                      dense: true,
-                      leading: Icon(Icons.delete),
-                      title: Text('Delete'),
-                    ),
-                  ),
-                   ),
-                ],
-                onSelected: (String value) {
-                  if (value == 'edit') {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (BuildContext context) =>
-                            EditTaskScreen(task: task),
+                    const PopupMenuItem<String>(
+                      value: 'delete',
+                      child: SizedBox(
+                        width: 125,
+                        height: 40,
+                        child: ListTile(
+                          dense: true,
+                          leading: Icon(Icons.delete),
+                          title: Text('Delete'),
+                        ),
                       ),
-                    );
-                  } else if (value == 'delete') {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text('Delete Task'),
-                          content:
-                              const Text('Are you sure you want to remove this task?'),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: const Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                final taskProvider =
-                                    Provider.of<TodoProvider>(context, listen: false);
-                                taskProvider.removeTask(task);
-                                Navigator.of(context).pop();
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                      'Task deleted successfully',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
+                    ),
+                  ];
+                }
+              },
+              onSelected: (String value) {
+                if (value == 'edit') {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          EditTaskScreen(task: task),
+                    ),
+                  );
+                } else if (value == 'delete') {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Delete Task'),
+                        content:
+                            const Text('Are you sure you want to remove this task?'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('Cancel'),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              final taskProvider =
+                                  Provider.of<TodoProvider>(context, listen: false);
+                              taskProvider.removeTask(task);
+                              Navigator.of(context).pop();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                    'Task deleted successfully',
+                                    style: TextStyle(
+                                      color: Colors.white,
                                     ),
-                                    backgroundColor: Colors.red, 
-                                    duration: const Duration(seconds: 1),
                                   ),
-                                );
-                              },
-                              child: Text(
-                                'OK',
-                                style: TextStyle(color: Colors.red[400]),
-                              ),
+                                  backgroundColor: Colors.red,
+                                  duration: const Duration(seconds: 1),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'OK',
+                              style: TextStyle(color: Colors.red[400]),
                             ),
-                          ],
-                        );
-                      },
-                    );
-                  }
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                color: Colors.white,
-                elevation: 10,
-                offset: const Offset(0, 10),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
               ),
+              color: Colors.white,
+              elevation: 10,
+              offset: const Offset(0, 10),
+            ),
             ),
           ),
         );

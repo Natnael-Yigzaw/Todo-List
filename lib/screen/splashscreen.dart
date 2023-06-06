@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../model/introchecker.dart';
+import 'homescreen.dart';
 import 'onbordingscreen.dart';
 
 
@@ -16,11 +18,27 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 1), () {
+    Timer(const Duration(seconds: 3), () {
+     Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const OnboardingScreen()),
+      );
+     // navigateToNextScreen();
+    });
+  }
+
+    void navigateToNextScreen() async {
+    bool isFirstTime = await SharedPreferencesService.getIsFirstTime();
+
+    if (isFirstTime) {
+      await SharedPreferencesService.setIsFirstTime(false);
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const OnboardingScreen()),
       );
-    });
+    } else {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomePage()),
+      );
+    }
   }
 
   @override

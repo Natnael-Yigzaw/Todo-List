@@ -72,7 +72,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
             TextFormField(
               controller: _titleController,
               decoration: const InputDecoration(
-                hintText: 'Enter title here',
               ),
             ),
             const SizedBox(height: 16.0),
@@ -90,7 +89,6 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
               controller: _descriptionController,
               maxLines: 5,
               decoration: const InputDecoration(
-                hintText: 'Enter description here',
               ),
             ),
             const SizedBox(height: 16.0),
@@ -102,33 +100,53 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
         backgroundColor: const Color(0xFF0A4C71),
         foregroundColor: Colors.white54,
         onPressed: () {
-              Task updatedTask = Task(
-                id: widget.task.id,
-                title: _titleController.text.trim(),
-                description: _descriptionController.text.trim(),
-                dueDate: widget.task.dueDate,
-                isCompleted: widget.task.isCompleted,
-                isFavorite: widget.task.isFavorite,
-              );
+          final String updatedTitle = _titleController.text.trim();
+          final String updatedDescription = _descriptionController.text.trim();
 
-              final todoProvider = Provider.of<TodoProvider>(context, listen: false);
-              todoProvider.updateTask(updatedTask);
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    'Task updated successfully.',
-                    style: GoogleFonts.quicksand(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                      ),
+          if (updatedTitle.isEmpty || updatedDescription.isEmpty) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Title and description cannot be empty',
+                  style: GoogleFonts.quicksand(
+                    textStyle: TextStyle(
+                      color: Colors.white,
                     ),
                   ),
-                  duration: const Duration(seconds: 1),
-                  backgroundColor: Color(0xFF0A4C71),
                 ),
-              );
-              Navigator.pop(context);
-            },
+                duration: const Duration(seconds: 2),
+                backgroundColor: Colors.red,
+              ),
+            );
+          } else {
+            Task updatedTask = Task(
+              id: widget.task.id,
+              title: updatedTitle,
+              description: updatedDescription,
+              dueDate: widget.task.dueDate,
+              isCompleted: widget.task.isCompleted,
+              isFavorite: widget.task.isFavorite,
+            );
+
+            final todoProvider = Provider.of<TodoProvider>(context, listen: false);
+            todoProvider.updateTask(updatedTask);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Task updated successfully.',
+                  style: GoogleFonts.quicksand(
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                duration: const Duration(seconds: 1),
+                backgroundColor: Color(0xFF0A4C71),
+              ),
+            );
+            Navigator.pop(context);
+          }
+        },
         child: const Icon(Icons.save),
       ),
     );
