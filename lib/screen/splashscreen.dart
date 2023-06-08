@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../model/introchecker.dart';
+import '../provider/introchecker.dart';
 import 'homescreen.dart';
 import 'onbordingscreen.dart';
 
@@ -19,10 +19,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-     Navigator.of(context).pushReplacement(
+     /*Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const OnboardingScreen()),
-      );
-     // navigateToNextScreen();
+      );*/
+     navigateToNextScreen();
     });
   }
 
