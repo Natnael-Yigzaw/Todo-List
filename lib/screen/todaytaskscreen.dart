@@ -4,6 +4,7 @@ import 'package:my_todo/model/task.dart';
 import 'package:my_todo/provider/todoprovider.dart';
 import 'package:my_todo/screen/taskdetailscreen.dart';
 import 'package:provider/provider.dart';
+import '../widget/appbardrawer.dart';
 import 'homescreen.dart';
 
 class TodayScreen extends StatelessWidget {
@@ -44,6 +45,7 @@ class TodayScreen extends StatelessWidget {
           },
         ),
       ),
+      drawer: const AppDrawer(),
       body: Container(
         color: Colors.white54,
         child: todayTasks.isEmpty

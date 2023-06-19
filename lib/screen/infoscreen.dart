@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../widget/appbardrawer.dart';
 import 'homescreen.dart';
 
 class InfoScreen extends StatelessWidget {
@@ -37,6 +38,7 @@ class InfoScreen extends StatelessWidget {
           },
         ),
       ),
+      drawer:  AppDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),

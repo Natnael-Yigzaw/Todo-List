@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF0A4C71),
         foregroundColor: Colors.white,
-        elevation: 6.0,
+        elevation: 8.0,
         hoverElevation: 8.0,
         focusElevation: 4.0,
         disabledElevation: 0.0,

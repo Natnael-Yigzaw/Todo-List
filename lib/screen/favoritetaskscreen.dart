@@ -4,6 +4,7 @@ import 'package:my_todo/screen/taskdetailscreen.dart';
 import 'package:provider/provider.dart';
 import '../model/task.dart';
 import '../provider/todoprovider.dart';
+import '../widget/appbardrawer.dart';
 import 'homescreen.dart';
 
 class FavoriteTasksScreen extends StatelessWidget {
@@ -51,6 +52,7 @@ class FavoriteTasksScreen extends StatelessWidget {
           },
         ),
       ),
+      drawer: const AppDrawer(),
       body: Container(
         color: Colors.white54,
         child: favoriteTasks.isEmpty

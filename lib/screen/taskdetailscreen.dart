@@ -6,6 +6,8 @@ import 'package:my_todo/model/task.dart';
 import 'package:my_todo/provider/todoprovider.dart';
 import 'package:provider/provider.dart';
 
+import '../widget/appbardrawer.dart';
+
 class TaskDescriptionScreen extends StatefulWidget {
   final Task task;
 
@@ -87,6 +89,7 @@ class _TaskDescriptionScreenState extends State<TaskDescriptionScreen> {
           ),
         ],
       ),
+      drawer: const AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

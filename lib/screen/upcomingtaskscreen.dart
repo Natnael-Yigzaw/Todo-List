@@ -5,6 +5,7 @@ import 'package:my_todo/provider/todoprovider.dart';
 import 'package:my_todo/screen/taskdetailscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import '../widget/appbardrawer.dart';
 import 'homescreen.dart';
 
 class UpcomingTasksScreen extends StatelessWidget {
@@ -45,6 +46,7 @@ class UpcomingTasksScreen extends StatelessWidget {
           },
         ),
       ),
+      drawer: const AppDrawer(),
       body: Container(
         color: Colors.white54,
         child: upcomingTasks.isEmpty
